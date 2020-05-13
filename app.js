@@ -46,6 +46,18 @@ const promptUser = () => {
           type: 'input',
           name: 'about',
           message: 'Provide some information about yourself:'
+        },
+        {
+          type: 'confirm',
+          name: 'confirmAbout',
+          message: 'Would you like to enter some information about yourself for an "About" section?',
+          default: true
+        },
+        {
+          type: 'input',
+          name: 'about',
+          message: 'Provide some information about yourself:',
+          when: ({ confirmAbout }) => confirmAbout
         }
       ]);
 };
@@ -70,7 +82,7 @@ const promptProject = portfolioData => {
           console.log('Please enter your project name!');
           return false;
         }
-    },
+    }},
     {
       type: 'input',
       name: 'description',
@@ -93,7 +105,7 @@ const promptProject = portfolioData => {
           console.log('Please enter your github link!');
           return false;
         }
-    },
+    }},
     {
       type: 'confirm',
       name: 'feature',
